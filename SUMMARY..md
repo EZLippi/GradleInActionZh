@@ -1,7 +1,7 @@
 # Summary
 * [关于本书](README.md)
 * [第一部分：Gradle简介](introduce-gradle/introduce-gradle.md)
-    * [项目自动化](introduce-gradle/project-automation/project-automatioon.md)
+    * [项目自动化](introduce-gradle/project-automation/project-automation.md)
         * [没有项目自动化的生活](introduce-gradle/project-automation/life-without-project-automation.md)
         * [项目自动化的优势](introduce-gradle/project-automation/benefits-of-project-automation.md)
         * [项目自动化的种类](introduce-gradle/project-automation/types-of-project-automation.md)
