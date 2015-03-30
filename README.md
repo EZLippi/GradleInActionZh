@@ -8,13 +8,13 @@
 
 * [Github托管地址](hhttps://github.com/LippiOuYang/GradleInActionZh)
 
-* 我会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 dongchuan55@gmail.com
+* 我会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 ouyanglip@gmail.com
 ----
 ### 如何参与
 
 任何问题都欢迎直接联系我 ouyanglip@gmail.com QQ 934107508
 
-#### 第一步先找到自己想翻译的部分
+#### 第一步先找到自己想翻译的部
 
 #### 第二步把代码叉到自己的仓库里
 
