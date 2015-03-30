@@ -5,7 +5,7 @@
         * [没有项目自动化的生活](introduce-gradle/project-automation/life-without-project-automation.md)
         * [项目自动化的优势](introduce-gradle/project-automation/benefits-of-project-automation.md)
         * [项目自动化的种类](introduce-gradle/project-automation/types-of-project-automation.md)
-        * [构建工具](introduce-gradle/project-automation/build-tools,md)
+        * [构建工具](introduce-gradle/project-automation/build-tools.md)
         * [Java构建工具](introduce-gradle/project-automation/java-build-tools.md)
         * [总结](introduce-gradle/project-automation/summary.md)
     * [Gradle下一代构建工具](introduce-gradle/gradle/gradle.md)
@@ -18,4 +18,4 @@
         * [总结](introduce-gradle/gradle/summary.md)
     * [开始你的第一个Gradle项目](introduce-gradle/first-project/introduce.md)
     
-        
+    
