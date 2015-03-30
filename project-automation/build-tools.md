@@ -18,10 +18,10 @@
 
 2. Build inpus and outputs: 任务把输入经过一系列步骤后产生输出。
 
-![](/images/dag2.png)
+	![](/images/dag2.png)
 
 3. 依赖管理。
 
-![](/images/dag3.png)
+	![](/images/dag3.png)
 
 
