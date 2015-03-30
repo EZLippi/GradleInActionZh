@@ -11,5 +11,11 @@
     * [Gradle下一代构建工具](introduce-gradle/gradle/gradle.md)
         * [为什么选择Gradle](introduce-gradle/gradle/why-gradle.md) 
         * [Gradle强大的特性](introduce-gradle/gradle/gradle-features.md)
-        * 
+        * [连续传递的特性](introduce-gradle/gradle/continuous-dilivery.md)
+        * [安装Gradle](introduce-gradle/gradle/install-gradle.md)
+        * [Gradle起步](introduce-gradle/gradle/start-with-gradle.md)
+        * [使用命令行](introduce-gradle/gradle/using-command-line,md)
+        * [总结](introduce-gradle/gradle/summary.md)
+    * [开始你的第一个Gradle项目](introduce-gradle/first-project/introduce.md)
+        
         
