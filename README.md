@@ -1,6 +1,6 @@
 # Gradle In Action 中文版
 
-### [阅读地址](http://lippiouyang.gitbooks.io/gradlein-action-cn/)
+### [阅读地址](http://lippiouyang.gitbooks.io/gradle-in-action-cn/)
 
 * Gradle In Action中文版 目前正在翻译当中 欢迎大家一起加入
 
