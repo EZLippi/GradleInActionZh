@@ -73,6 +73,7 @@ Gradle提高效率的一个办法就是能够在命令行输入任务名的驼�
 
 * -i:Gradle默认不会输出很多信息，你可以使用-i选项改变日志级别为INFO
 * -s:如果运行时错误发生打印堆栈信息
+* -q:只打印错误信息
 * -?-h,--help:打印所有的命令行选项
 * -b,--build-file:Gradle默认执行build.gradle脚本，如果想执行其他脚本可以使用这个命令，比如gradle -b test.gradle
 * --offline:在离线模式运行build,Gradle只检查本地缓存中的依赖
