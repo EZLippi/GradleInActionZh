@@ -96,7 +96,6 @@ War插件确保打包的WAR文件符合JAVA EE规范，war任务拷贝web应用�
 
 ![](/images/dag20.png)
 
-
 	//Changes web application source directory
 
 	webAppDirName = 'webfiles'
@@ -105,30 +104,6 @@ War插件确保打包的WAR文件符合JAVA EE规范，war任务拷贝web应用�
 	war {
 	from 'static'
 	}
-
-**在嵌入的Web容器中运行**
-
-嵌入式的Servlet容器完全不知到你的应用程序知道你提供准确的classpath和源代码目录，你可以手工编程提供，Jetty插件给你完成了所有的工作，你只需要添加下面一条命令：
-	apply plugin: 'jetty'
-
-运行Web应用需要用到的任务是jettyRun,启动Jetty容器并且无需创建WAR文件，这个命令的输出应该类似这样的：
-
-	$ gradle jettyRun
-	:compileJava
-	:processResources UP-TO-DATE
-	:classes
-	> Building > :jettyRun > Running at http://localhost:8080/todo-webapp-jetty
-
-最后一行Jetty插件给你提供了一个URL用来监听HTTP请求，打开浏览器输入这个链接就能看到你编写的Web应用了。
-
-Jetty插件默认监听的端口是8080，上下文路径是todo-webapp-jetty,你也可以自己配置成想要的：
-
-	jettyRun {
-	   httpPort = 9090
-	   contextPath = 'todo'
-	}
-
-这样你就把监听端口改成了9090,上下文目录改成了todo。
 
 
 
