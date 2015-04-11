@@ -16,5 +16,9 @@
     * [使用命令行](gradle/using-command-line.md)
     * [总结](gradle/summary.md)
 * [开始你的第一个Gradle项目](first-project/introduce.md)
-    
+    * [介绍这个Gradle项目](first-project/introduce-this.md)
+    * [构建Java项目](first-project/build-java-project.md)
+    * [Gradle部署Web项目](first-project/web-development.md)
+    * [Gradle包装器](first-project/gradle-wrapper.md)
+    * [总结](first-project/summary.md)
     
