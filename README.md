@@ -32,4 +32,4 @@
 
 成员 | 联系方式  | Github
 :------|:------|:------
-lippiOuYang  | ouyanglip@gmail.com | [Github](https://github.com/LippiOuYang)
+LippiOuYang  | ouyanglip@gmail.com | [Github](https://github.com/LippiOuYang)
