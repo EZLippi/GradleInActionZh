@@ -1,6 +1,6 @@
 #构建Java项目#
 
-上一节我们简要介绍了如何编写一哥单机的To Do应用，接下来要打包部署成可执行的应用，我们需要编译源代码，生成的class文件需要打包到JAR文件中。JDK提供了javac 和jar工具帮助你实现这些任务，当时你也不想每次源代码发生变化时你都手动去执行这些任务吧。
+上一节我们简要介绍了如何编写一个单机的To Do应用，接下来要打包部署成可执行的应用，我们需要编译源代码，生成的class文件需要打包到JAR文件中。JDK提供了javac 和jar工具帮助你实现这些任务，但是你也不想每次源代码发生变化时你都手动去执行这些任务吧。
 
 Gradle插件能够自动化完成这些任务，插件引入了一些领域特有的观念，其中一个Gradle插件就是java插件，Java插件不仅仅只有编译和打包的功能，它给你的项目安排了一个标准布局，并确保你所有的任务都是按序执行，现在该应用java插件来构建你的build脚本了。
 
@@ -10,7 +10,7 @@ Gradle插件能够自动化完成这些任务，插件引入了一些领域特�
 
 	apply plugin: 'java'
 
-这一行代码足以构建你的项目，当时Gradle怎么知道你的源代码放在哪个位置呢？java插件的一个约定就是源代码的位置，默认情况下插件搜索src/main/java路径下的文件，你的包名com.manning.gia.todo会转换成源代码根目录下的子目录，创建build脚本之后你的项目结构应该是这样的：
+这一行代码足以构建你的项目，但是Gradle怎么知道你的源代码放在哪个位置呢？java插件的一个约定就是源代码的位置，默认情况下插件搜索src/main/java路径下的文件，你的包名com.manning.gia.todo会转换成源代码根目录下的子目录，创建build脚本之后你的项目结构应该是这样的：
 
 ![](/images/dag12.png)
 
@@ -73,7 +73,7 @@ Java插件是一个非常固执的框架，对于项目很多的方面它都假�
 
 	jar {
 	manifest {
-	attributes 'Main-Class': 'com.manning.gia.todo.ToDoApp'
+		attributes 'Main-Class': 'com.manning.gia.todo.ToDoApp'
 	}
 	}
 
