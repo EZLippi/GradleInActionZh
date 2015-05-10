@@ -1,5 +1,5 @@
-<h2>Gradle初体验</h2>
-<p>Gradle的安装非常方便，下载ZIP包，解压到本地目录，设置 GRADLE_HOME 环境变量并将 GRADLE_HOME/bin 加到 PATH 环境变量中，安装就完成了。用户可以运行<strong>gradle -v</strong>命令验证安装，这些初始的步骤和Maven没什么两样。Gradle目前的版本是1.0-milestone-1，根据<a href="http://wiki.gradle.org/display/GRADLE/Roadmap">其Wiki上的Roadmap</a>，在1.0正式版发布之前，还至少会有3个里程碑版本，而1.0的发布日期最快也不会早于6月份。而正是这样一个看起来似乎还不怎么成熟的项目，却有着<a href="http://gradle.org/documentation.html">让很多成熟项目都汗颜的文档</a>，其包括了安装指南、基本教程、以及一份近300页的全面用户指南。这对于用户来说是非常友好的，同时也说明了Gradle的开发者对这个项目非常有信心，要知道编写并维护文档可不是件轻松的工作，对于Gradle这样未来仍可能发生很大变动的项目来说尤为如此。</p>
+<h2>Gradle</h2>
+<p>Gradle目前的版本是2.4，根据<a href="http://wiki.gradle.org/display/GRADLE/Roadmap">其Wiki上的Roadmap</a>，Gradle有着<a href="http://gradle.org/documentation.html">让很多成熟项目都汗颜的文档</a>，其包括了安装指南、基本教程、以及一份近300页的全面用户指南。这对于用户来说是非常友好的，同时也说明了Gradle的开发者对这个项目非常有信心，要知道编写并维护文档可不是件轻松的工作，对于Gradle这样未来仍可能发生很大变动的项目来说尤为如此。</p>
 <p>类似于Maven的<code>pom.xml</code>文件，每个Gradle项目都需要有一个对应的<code>build.gradle</code>文件，该文件定义一些任务（task）来完成构建工作，当然，每个任务是可配置的，任务之间也可以依赖，用户亦能配置缺省任务，就像这样：</p>
 <pre>
 defaultTasks 'taskB'
