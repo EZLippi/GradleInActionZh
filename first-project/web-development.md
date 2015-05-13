@@ -25,25 +25,25 @@ Gradle提供拆箱插件用来打包WAR文件以及部署Web应用到本地的Se
 
 		@Override
 		protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String servletPath = request.getServletPath();
-		String view = processRequest(servletPath, request);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		dispatcher.forward(request, response);
+    		String servletPath = request.getServletPath();
+    		String view = processRequest(servletPath, request);
+    		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+    		dispatcher.forward(request, response);
 	 
 		}
 
 		private String processRequest(String servletPath, HttpServletRequest request) {
 
-		if(servletPath.equals("/all")) {
-		List<ToDoItem> toDoItems = toDoRepository.findAll();
-		request.setAttribute("toDoItems", toDoItems);
-		return "/jsp/todo-list.jsp";
-		}
-		else if(servletPath.equals("/delete")) {
-		(...)
-		}
-		(...)
-		return "/all";
+    		if(servletPath.equals("/all")) {
+        		List<ToDoItem> toDoItems = toDoRepository.findAll();
+        		request.setAttribute("toDoItems", toDoItems);
+        		return "/jsp/todo-list.jsp";
+    		}
+    		else if(servletPath.equals("/delete")) {
+    	       	(...)
+    		}
+    		(...)
+    		return "/all";
 		}
 
 	}

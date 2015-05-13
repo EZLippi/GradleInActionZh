@@ -37,7 +37,7 @@ Project实例允许你访问你项目所有的Gradle特性，比如任务的创�
 	//Only initial declaration of extra property requires you to use ext namespace
 	project.ext.myProp = 'myValue'
 	ext {
-	someOtherProp = 123
+	   someOtherProp = 123
 	}
 
 	//Using ext namespace to access extra property is optional
@@ -56,7 +56,7 @@ Project实例允许你访问你项目所有的Gradle特性，比如任务的创�
 	assert project.exampleProp == 'myValue'
 
 	task printGradleProperty << {
-	println "Second property: $someOtherProp"
+	   println "Second property: $someOtherProp"
 	}
 
 **定义属性的其他方法**

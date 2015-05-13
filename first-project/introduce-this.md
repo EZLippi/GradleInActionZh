@@ -27,25 +27,28 @@
 *表示Todo模型的类ToDoItem*
 	
 	package com.manning.gia.todo.model;
+	
 	public class ToDoItem implements Comparable<ToDoItem> {
-	private Long id;
-	private String name;
-	private boolean completed;
-	(...)
+	   private Long id;
+   	   private String name;
+	   private boolean completed;
+	   (...)
 	}
 
 
 *模型持久化接口ToDoRepository*
 
 	package com.manning.gia.todo.repository;
+	
 	import com.manning.gia.todo.model.ToDoItem;
 	import java.util.Collection;
+	
 	public interface ToDoRepository {
-	List<ToDoItem> findAll();
-	ToDoItem findById(Long id);
-	Long insert(ToDoItem toDoItem);
-	void update(ToDoItem toDoItem);
-	void delete(ToDoItem toDoItem);
+    	List<ToDoItem> findAll();
+    	ToDoItem findById(Long id);
+    	Long insert(ToDoItem toDoItem);
+    	void update(ToDoItem toDoItem);
+    	void delete(ToDoItem toDoItem);
 	}
 
 接下来创建一个可扩展的、线程安全的实现：
@@ -53,40 +56,39 @@
 	package com.manning.gia.todo.repository;
 
 	public class InMemoryToDoRepository implements ToDoRepository {
-	private AtomicLong currentId = new AtomicLong();
-	private ConcurrentMap<Long, ToDoItem> toDos = new ConcurrentHashMap<Long, ToDoItem>();
-
-	@Override
-
-	public List<ToDoItem> findAll() {
-	List<ToDoItem> toDoItems = new ArrayList<ToDoItem>(toDos.values());
-	Collections.sort(toDoItems);
-	return toDoItems;
-
-	}
-
-	@Override
-	public ToDoItem findById(Long id) {
-	return toDos.get(id);
-	}
-
-	@Override
-	public Long insert(ToDoItem toDoItem) {
-	Long id = currentId.incrementAndGet();
-	toDoItem.setId(id);
-	toDos.putIfAbsent(id, toDoItem);
-	return id;
-	}
+    	private AtomicLong currentId = new AtomicLong();
+    	private ConcurrentMap<Long, ToDoItem> toDos = new ConcurrentHashMap<Long, ToDoItem>();
+    
+    	@Override
+    	public List<ToDoItem> findAll() {
+        	List<ToDoItem> toDoItems = new ArrayList<ToDoItem>(toDos.values());
+        	Collections.sort(toDoItems);
+        	return toDoItems;
+        
+        }
+    
+    	@Override
+    	public ToDoItem findById(Long id) {
+        	return toDos.get(id);
+        }
+    
+    	@Override
+    	public Long insert(ToDoItem toDoItem) {
+        	Long id = currentId.incrementAndGet();
+        	toDoItem.setId(id);
+        	toDos.putIfAbsent(id, toDoItem);
+        	return id;
+    	}
 
 
 	@Override
 	public void update(ToDoItem toDoItem) {
-	toDos.replace(toDoItem.getId(), toDoItem);
-	}
-
+    	toDos.replace(toDoItem.getId(), toDoItem);
+    }
+    
 	@Override
 	public void delete(ToDoItem toDoItem) {
-	toDos.remove(toDoItem.getId());
+	   toDos.remove(toDoItem.getId());
 	}
 
 	}
@@ -99,23 +101,23 @@
 	import com.manning.gia.todo.utils.CommandLineInputHandler;
 
 	public class ToDoApp {
-	public static final char DEFAULT_INPUT = '\u0000';
-	public static void main(String args[]) {
-	CommandLineInputHandler commandLineInputHandler = new
-	CommandLineInputHandler();
-	char command = DEFAULT_INPUT;
-
-	while(CommandLineInput.EXIT.getShortCmd() != command) {
-	commandLineInputHandler.printOptions();
-	String input = commandLineInputHandler.readInput();
-	char[] inputChars = input.length() == 1 ? input.toCharArray()
-	char[] { DEFAULT_INPUT };
-	command = inputChars[0];
-	CommandLineInput commandLineInput = CommandLineInput.getCommandLineInputForInput(command);
-	commandLineInputHandler.processInput(commandLineInput);
-	}
-
-	}
+    	public static final char DEFAULT_INPUT = '\u0000';
+    	public static void main(String args[]) {
+        	CommandLineInputHandler commandLineInputHandler = new
+        	CommandLineInputHandler();
+        	char command = DEFAULT_INPUT;
+        
+        	while(CommandLineInput.EXIT.getShortCmd() != command) {
+            	commandLineInputHandler.printOptions();
+            	String input = commandLineInputHandler.readInput();
+            	char[] inputChars = input.length() == 1 ? input.toCharArray()
+            	char[] { DEFAULT_INPUT };
+            	command = inputChars[0];
+            	CommandLineInput commandLineInput = CommandLineInput.getCommandLineInputForInput(command);
+            	commandLineInputHandler.processInput(commandLineInput);
+        	}
+    
+    	}
 	}
 
 到目前为止我们讨论了应用的组件和用户交互。接下来就要用Gradle实现项目的自动化构建，编译源代码、打包JAR文件、运行应用。

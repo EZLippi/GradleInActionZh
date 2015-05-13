@@ -45,22 +45,22 @@
         @Override
        
         void graphPopulated(TaskExecutionGraph taskGraph) {
-        //查看是否包含release任务
-        if(taskGraph.hasTask(releaseTaskPath)) {
-        List<Task> allTasks = taskGraph.allTasks
-        //查找release任务
-        Task releaseTask = allTasks.find {it.path == releaseTaskPath }
-        Project project = releaseTask.project
-        
-        if(!project.version.release) {
-       
-        project.version.release = true
-        project.ant.propertyfile(file: project.versionFile) {
-        entry(key: 'release', type: 'string', operation: '=',
-        ➥ value: 'true')
-        }
-        }
-        }
+            //查看是否包含release任务
+            if(taskGraph.hasTask(releaseTaskPath)) {
+                List<Task> allTasks = taskGraph.allTasks
+                //查找release任务
+                Task releaseTask = allTasks.find {it.path == releaseTaskPath }
+                Project project = releaseTask.project
+                
+                if(!project.version.release) {
+               
+                    project.version.release = true
+                    project.ant.propertyfile(file: project.versionFile) {
+                    entry(key: 'release', type: 'string', operation: '=',
+                    ➥ value: 'true')
+            }
+          }
+         }
         }
     }
     def releaseVersionListener = new ReleaseVersionListener()
