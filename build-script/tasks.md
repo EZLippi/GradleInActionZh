@@ -10,11 +10,11 @@
 
 ![](/images/dag26.png)
 
-通过编程来控制版本表单对于自动化项目生命周期很有必要，比如：你的代码通过了单元测试准备交付了，当前的版本是1.3-SNAPSHOT,在打包成war文件之前你想把它变成发布版本1.3然后自动部署到服务器中，这些步骤可以划分为多个任务：一个用来修改项目的版本号另一个用于打包WAR文件。
+通过编程来控制版本对于自动化项目生命周期很有必要，比如：你的代码通过了单元测试准备交付了，当前的版本是1.3-SNAPSHOT,在打包成war文件之前你想把它变成发布版本1.3然后自动部署到服务器中，这些步骤可以划分为多个任务：一个用来修改项目的版本号另一个用于打包WAR文件。
 
 ##声明任务的动作(actions)
 
-动作就是在你的任务中放置构建逻辑的地方，Task接口提供了两个接口来声明任务的动作：
+动作就是在你的任务中放置构建逻辑的地方，Task接口提供了两个方法来声明任务的动作：
 doFirst和doLast，当任务执行的时候，定义在闭包里的动作逻辑就按顺序执行。
 
 接下来我们会写一个简单的任务printVersion,任务的作用就是打印项目的版本号，在任务
@@ -65,7 +65,7 @@ doFirst和doLast，当任务执行的时候，定义在闭包里的动作逻辑�
 
 **访问任务属性**
 
-接下来我们来改善一下输出版本号的方法，Gradle提供一个基于SLF4J库的日子实现，除了实现了基本的日子级别（DEBUG, ERROR, INFO, TRACE, WARN)）外，还添加了额外的级别，日子实例可以通过任务的方法来直接访问，接下来，你将用QUIET级别打印项目的版本号：
+接下来我们来改善一下输出版本号的方法，Gradle提供一个基于SLF4J库的日志实现，除了实现了基本的日志级别（DEBUG, ERROR, INFO, TRACE, WARN)）外，还添加了额外的级别，日志实例可以通过任务的方法来直接访问，接下来，你将用QUIET级别打印项目的版本号：
 
 
 	task printVersion << {
@@ -185,12 +185,12 @@ Gradle并不保证依赖的任务能够按顺序执行，dependsOn方法只是�
 
 **添加任务配置块**
 
-接下来我们将声明一个任务loadVersion来从属性文件中读取版本号并赋给ProjectVersion实例，第一眼看起来和其他定义的任务一样，仔细一看你会主要到你没有定义动作或者使用左移操作符，在Gradle里称之为task configuration。
+接下来我们将声明一个任务loadVersion来从属性文件中读取版本号并赋给ProjectVersion实例，第一眼看起来和其他定义的任务一样，仔细一看你会注意到你没有定义动作或者使用左移操作符，在Gradle里称之为任务配置块(task configuration)。
 
 	ext.versionFile = file('version.properties')
 	//配置任务没有左移操作符
 	task loadVersion {
-	project.version = readVersion()
+		project.version = readVersion()
 	}
 	
 	ProjectVersion readVersion() {

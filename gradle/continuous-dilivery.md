@@ -11,8 +11,8 @@
 * 执行静态代码分析、生成分析报告
 * 创建发布版本
 * 部署到目标环境
-* Deploying the deliverable
-* Performing smoke and automated functional tests
+* 部署传递过程
+* 执行冒烟测试和自动功能测试
 
 
 
