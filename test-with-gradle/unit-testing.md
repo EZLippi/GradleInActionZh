@@ -5,7 +5,7 @@
 
 ###使用JUnit
 
-你将给你之前的ToDo应用的存储类InMemoryToDoRepository.java编写单元测试，为了突触不同框架的相同和不同之处，所有的单元测试都会验证同一个类的功能。接下来你给子项目repository编写测试，放置测试代码的正确位置是在测试的标准布局里，在src/test/java目录下创建一个名叫InMemoryToDoRepositoryTest.java的类，你可以学习测试驱动开发的相关理论，在代码中添加适当的断言语句，下面这段代码用来测试插入功能的正确性。
+你将给你之前的ToDo应用的存储类InMemoryToDoRepository.java编写单元测试，为了突出不同框架的相同和不同之处，所有的单元测试都会验证同一个类的功能。接下来你给子项目repository编写测试，放置测试代码的正确位置是在测试的标准布局里，在src/test/java目录下创建一个名叫InMemoryToDoRepositoryTest.java的类，你可以学习测试驱动开发的相关理论，在代码中添加适当的断言语句，下面这段代码用来测试插入功能的正确性。
 
 	import com.manning.gia.todo.model.ToDoItem;
 	import org.junit.Before;
