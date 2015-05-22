@@ -35,7 +35,3 @@
     * [自动化测试](test-with-gradle/automated-test.md)
     * [测试Java应用](test-with-gradle/test-java-application.md)
     * [单元测试](test-with-gradle/unit-testing.md)
-    * [配置测试执行过程](test-with-gradle/configuring-test-execution.md)
-    * [集成测试](test-with-gradle/integrating-test.md)
-    * [功能测试](test-with-gradle/functional-test.md)
-    * [总结](test-with-gradle/summary.md)
