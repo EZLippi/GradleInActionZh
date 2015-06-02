@@ -1,4 +1,5 @@
 又多了一份Gradle教程：Gradle In Action
+
 # Gradle In Action(Gradle实战)中文版
 
 * Gradle In Action中文版(Gradle中文教程)， 目前正在翻译当中 欢迎大家一起加入
@@ -10,14 +11,16 @@
 * [阅读地址](http://lippiouyang.gitbooks.io/gradle-in-action-cn/content/)
 
 * 我会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 ouyanglip@gmail.com
+* 
 ----
+
 ### 如何参与
 
 任何问题都欢迎直接联系我 ouyanglip@gmail.com 
 
 #### 第一步先找到自己想翻译的部分
 
-#### 第二步把代码叉到自己的仓库里
+#### 第二步把代码fork到自己的仓库里
 
 1. fork主仓库到自己的仓库里
 2. 然后 git clone 到自己的电脑上
@@ -29,6 +32,7 @@
 8. 审核修改完成之后你翻译的部分就会被合并到书里
 
 ---
+
 ### 贡献者列表
 
 成员 | 联系方式  | Github
