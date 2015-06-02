@@ -11,7 +11,7 @@
 * [阅读地址](http://lippiouyang.gitbooks.io/gradle-in-action-cn/content/)
 
 * 我会开放权限给每一个加入的伙伴 (翻译或者校对)，请提前邮箱联系 ouyanglip@gmail.com
-* 
+
 ----
 
 ### 如何参与
