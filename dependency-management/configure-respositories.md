@@ -39,7 +39,7 @@ RepositoryHandler接口提供了两个方法来定义Maven仓库，mavenCentral�
 	repositories {
 		mavenCentral()
 		maven {
-		name 'Custom Maven Repository',
-		url 'http://repository.forge.cloudbees.com/release/')
+			name 'Custom Maven Repository',
+			url 'http://repository.forge.cloudbees.com/release/')
 		}
 	}
