@@ -2,7 +2,7 @@
 
 作为一个构建脚本的开发者，你不应该局限于编写任务动作或者配置逻辑，有时候你想在指定的生命周期事件发生的时候执行一段代码。生命周期事件可以在指定的生命周期之前、之中或者之后发生，在执行阶段之后发生的生命周期事件就该是构建的完成了。
 
-假设你希望在构建失败时能够在开发阶段尽早得到反馈，给构建生命周期事件添加回调有两种方法：一是通过闭包，二是实现Gradle API的一个监听接口，Gradle并没有要求你监听生命周期事件，这完全决定于你，通过监听器实现的优势就是可以给你的类写单元测试，看看下面这幅图会有一点直观的印象：
+假设你希望在构建失败时能够在开发阶段尽早得到反馈，给构建生命周期事件添加回调有两种方法：一是通过闭包，二是实现 Gradle API 的一个监听接口，Gradle并没有要求你监听生命周期事件，这完全决定于你，通过监听器实现的优势就是可以给你的类写单元测试，看看下面这幅图会有一点直观的印象：
 
 
 ![](/images/dag27.png)
@@ -23,13 +23,13 @@
             
             if(!version.release) {
            
-            version.release = true
+                version.release = true
              
-            ant.propertyfile(file: versionFile) {
-                 entry(key: 'release', type: 'string', operation: '=',
-                 value: 'true')
+                ant.propertyfile(file: versionFile) {
+                    entry(key: 'release', type: 'string', operation: '=',
+                    value: 'true')
+                }
             }
-        }
         }
     }
     
@@ -57,9 +57,9 @@
                     project.version.release = true
                     project.ant.propertyfile(file: project.versionFile) {
                     entry(key: 'release', type: 'string', operation: '=',
-                    ➥ value: 'true')
+                        value: 'true')
+                }
             }
-          }
          }
         }
     }
