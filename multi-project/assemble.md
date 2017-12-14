@@ -19,6 +19,7 @@
 ###介绍设置文件
 
 设置文件用来表示项目的层次结构，默认的设置文件名称是settings.gradle,对于你想添加的每一个子项目，调用include方法来添加。
+
 	//参数是项目路径，不是文件路径
 	include 'model'
 	include 'repository', 'web'
