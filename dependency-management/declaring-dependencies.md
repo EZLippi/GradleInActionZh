@@ -4,7 +4,7 @@ DSL配置block dependencies用来给配置添加一个或多个依赖，你的�
 
 ![](/images/5-3.png)
 
-这一章直接扫外部模块依赖和文件依赖，我们来看看Gradle APi是怎么表示依赖的。
+这一章只介绍外部模块依赖和文件依赖，我们来看看Gradle APi是怎么表示依赖的。
 
 **理解依赖的API表示**
 
@@ -43,7 +43,7 @@ DSL配置block dependencies用来给配置添加一个或多个依赖，你的�
 
 	dependencies {
 		//使用映射声明依赖
-		compile group: cargoGroup, name: 'cargo-core-uberjar',version: cargoVersion
+		compile group: cargoGroup, name: 'cargo-core-uberjar', version: cargoVersion
 		//用快捷方式来声明，引用了前面定义的外部属性
 		cargo "$cargoGroup:cargo-ant:$cargoVersion"
 	}
@@ -61,7 +61,7 @@ Gradle没有给项目选择默认的仓库，当你没有配置仓库的时候�
 	What went wrong:
 	Execution failed for task ':deployToLocalTomcat'.
 	> Could not resolve all dependencies for configuration ':cargo'.
-		> Could not find group:org.codehaus.cargo, module:cargo-core-uberjar, version:1.3.1.
+	> Could not find group:org.codehaus.cargo, module:cargo-core-uberjar, version:1.3.1.
 		Required by:
 			:cargo-configuration:unspecified
 	> Could not find group:org.codehaus.cargo, module:cargo-ant,version:1.3.1.
