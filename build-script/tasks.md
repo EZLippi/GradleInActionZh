@@ -1,6 +1,6 @@
 #管理任务
 
-每个新创建的任务都是org.gradle.api.DefaultTask类型，org.gradle.api.Task的标准实现，DefaultTask所有的域都是私有的，意味着他们只能通过setter和getter方法来访问，庆幸的是Groovy提供了一些语法糖来允许你通过名字来使用域。
+每个新创建的任务都是 org.gradle.api.DefaultTask 类型， [org.gradle.api.Task](https://github.com/gradle/gradle/blob/master/subprojects/core-api/src/main/java/org/gradle/api/Task.java) 的标准实现，DefaultTask 所有的域都是私有的，意味着他们只能通过 setter 和 getter 方法来访问，庆幸的是Groovy提供了一些语法糖来允许你通过名字来使用域。
 
 ##管理项目的版本
 
@@ -24,7 +24,7 @@ doFirst和doLast，当任务执行的时候，定义在闭包里的动作逻辑�
 
 	task printVersion {
 		doLast {
-		println "Version: $version"
+		    println "Version: $version"
 		}
 	}
 
@@ -38,7 +38,7 @@ doFirst和doLast，当任务执行的时候，定义在闭包里的动作逻辑�
 
 	task printVersion {
 		doFirst {
-		println "Version: $version"
+		    println "Version: $version"
 		}
 	}
 
@@ -49,11 +49,11 @@ doFirst和doLast，当任务执行的时候，定义在闭包里的动作逻辑�
 	task printVersion {
 	//任务的初始声明可以添加first和last动作
 		doFirst {
-		println "Before reading the project version"
+		    println "Before reading the project version"
 		}
 
 		doLast {
-		println "Version: $version"
+		    println "Version: $version"
 		}
 	}
 
@@ -74,7 +74,9 @@ doFirst和doLast，当任务执行的时候，定义在闭包里的动作逻辑�
 
 访问任务的属性是不是很容易？接下来我将给你展示两个其他的属性，group和description，两个都是documentation任务的一部分，description属性简短的表示任务的目的，group表示任务的逻辑分组。
 
-	task printVersion(group: 'versioning', description: 	'Prints project version.') << {
+	task printVersion(
+	    group: 'versioning',
+	    description: 'Prints project version.') << {
 		logger.quiet "Version: $version"
 	}
 
@@ -84,7 +86,7 @@ doFirst和doLast，当任务执行的时候，定义在闭包里的动作逻辑�
 		group = 'versioning'
 		description = 'Prints project version.'
 		doLast {
-		logger.quiet "Version: $version"
+		    logger.quiet "Version: $version"
 		}
 	}
 
@@ -108,7 +110,7 @@ dependsOn方法用来声明一个任务依赖于一个或者多个任务，接�
 	
 	//声明多个依赖
 	task printVersion(dependsOn: [second, first]) << {
-	logger.quiet "Version: $version"
+	    logger.quiet "Version: $version"
 	}
 
 	task third << { println "third" }
@@ -123,7 +125,7 @@ dependsOn方法用来声明一个任务依赖于一个或者多个任务，接�
 	Version: 0.1-SNAPSHOT
 	third
 
-仔细看这个执行顺序，你有没用发现printVersion声明了对second和first任务的依赖，但是first在second任务前执行了，Gradle里面任务的执行顺序并不是确定的。
+仔细看这个执行顺序，你有没用发现printVersion声明了对second和first任务的依赖，但是first在second任务前执行了，*Gradle里面任务的执行顺序并不是确定的*。
 
 **任务依赖执行顺序**
 
@@ -209,7 +211,7 @@ Gradle并不保证依赖的任务能够按顺序执行，dependsOn方法只是�
 	}
 	//在Groovy中如果这是最后一个语句你可以省略return关键字
 	new ProjectVersion(versionProps.major.toInteger(),
-	 versionProps.minor.toInteger(), versionProps.release.toBoolean())
+	   versionProps.minor.toInteger(), versionProps.release.toBoolean())
 	}
 
 接下来运行printVersion，你会看到loadVersion任务先执行了：
@@ -285,8 +287,8 @@ makeReleaseVersion的逻辑比较简单，你可能不用考虑代码维护的�
 		void start() {
 			project.version.release = true
 			ant.propertyfile(file: destFile) {
-			entry(key: 'release', type: 'string', operation: '=', value: 'true')
-		}
+			    entry(key: 'release', type: 'string', operation: '=', value: 'true')
+		        }
 		}
 	}
 
@@ -317,7 +319,7 @@ makeReleaseVersion的逻辑比较简单，你可能不用考虑代码维护的�
 
 		@Override
 		String toString() {
-		"$maj.$min${prodReady? '' : '-SNAPSHOT'}"
+			"$maj.$min${prodReady? '' : '-SNAPSHOT'}"
 		}
 	}
 
@@ -334,29 +336,28 @@ makeReleaseVersion的逻辑比较简单，你可能不用考虑代码维护的�
 
 Gradle自带的任务类型继承自DefaultTask，Gradle提供了很多自带的任务类型，这里我只介绍两个，Zip和copy用在发布项目中。
 
-//eg.使用任务类型来备份发布版本
-
+	//eg.使用任务类型来备份发布版本
 	task createDistribution(type: Zip, dependsOn: 	makeReleaseVersion) {
 		//引用war任务的输出
 		from war.outputs.files
 		//把所有文件放进ZIP文件的src目录
 		from(sourceSets*.allSource) {
-		into 'src'
+			into 'src'
 		}
 		//添加版本文件
 		from(rootDir) {
-		include versionFile.name
+			include versionFile.name
 		}
 	}
 
 	task backupReleaseDistribution(type: Copy) {
-			//引用createDistribution的输出
-			from createDistribution.outputs.files
-			into "$buildDir/backup"
-		}
+		//引用createDistribution的输出
+		from createDistribution.outputs.files
+		into "$buildDir/backup"
+	}
 
-		task release(dependsOn: backupReleaseDistribution) 	<< {
-			logger.quiet 'Releasing the project...'
+	task release(dependsOn: backupReleaseDistribution) << {
+		logger.quiet 'Releasing the project...'
 	}
 
 **任务依赖推导**
