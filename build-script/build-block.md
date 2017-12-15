@@ -13,6 +13,7 @@ Gradle运用了领域驱动的设计理念（DDD）来给自己的领域构建�
 一个项目可以创建新任务、添加依赖和配置、应用插件和其他脚本，许多属性比如name和description都是可以通过getter和setter方法来访问。
 
 Project实例允许你访问你项目所有的Gradle特性，比如任务的创建和依赖了管理，记住一点当访问你项目的属性和方法时你并不需要显式的使用project变量--Gradle假定你的意思是Project实例，看看下面这个例子：
+
 	//没有使用project变量来设置项目的描述
 	setDescription("myProject")
 	//使用Grovvy语法来访问名字和描述
@@ -34,6 +35,7 @@ Project实例允许你访问你项目所有的Gradle特性，比如任务的创�
 ###外部属性
 
 外部属性一般存储在键值对中，要添加一个属性，你需要使用ext命名空间，看一个例子：
+
 	//Only initial declaration of extra property requires you to use ext namespace
 	project.ext.myProp = 'myValue'
 	ext {
@@ -46,7 +48,7 @@ Project实例允许你访问你项目所有的Gradle特性，比如任务的创�
 	ext.someOtherProp = 567	
 
 相似的，外部属性可以定义在一个属性文件中：
-通过在<USER_HOME>/.gradle路径或者项目根目录下的gradle.properties文件来定义属性可以直接注入到你的项目中，他们可以通过project实例来访问，注意<USER_HOME>/.gradle目录下只能有一哥Gradle属性文件即使你有多个项目，在属性文件中定义的属性可以被所有的项目访问，假设你在你的gradle.properties文件中定义了下面的属性：
+通过在<USER_HOME>/.gradle路径或者项目根目录下的 gradle.properties文件来定义属性可以直接注入到你的项目中，他们可以通过 project实例来访问，注意<USER_HOME>/.gradle目录下只能有一个 Gradle属性文件即使你有多个项目，在属性文件中定义的属性可以被所有的项目访问，假设你在你的gradle.properties文件中定义了下面的属性：
 
 	exampleProp = myValue
 	someOtherProp = 455
