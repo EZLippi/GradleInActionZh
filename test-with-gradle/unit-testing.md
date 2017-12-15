@@ -25,7 +25,8 @@
 		public void insertToDoItem() {
 			ToDoItem newToDoItem = new ToDoItem();		　
 			newToDoItem.setName("Write unit tests");
-			Long newId = inMemoryToDoRepository.insert(newToDoItem);		//错误的断言会导致测试失败　
+			Long newId = inMemoryToDoRepository.insert(newToDoItem);
+			//错误的断言会导致测试失败　
 			assertNull(newId);
 			ToDoItem persistedToDoItem = inMemoryToDoRepository.findById(newId);
 			assertNotNull(persistedToDoItem);
@@ -35,14 +36,15 @@
 
 接下来你需要在依赖配置中添加JUnit的依赖：
 
-	project(':repository')repositories {
-		mavenCentral()
-	}
-	{
-	}
-	dependencies {
-		compile project(':model')
-		testCompile 'junit:junit:4.11'
+	project(':repository'){
+		repositories {
+			mavenCentral()
+		}
+	
+		dependencies {
+			compile project(':model')
+			testCompile 'junit:junit:4.11'
+		}
 	}
 
 之前我们讲过test任务会先编译源代码，生成Jar文件，然后编译测试代码最后执行测试，下面的命令行输出显示了有一个断言出错的情况：
