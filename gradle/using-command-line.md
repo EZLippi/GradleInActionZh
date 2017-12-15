@@ -46,8 +46,9 @@ Gradle提高效率的一个办法就是能够在命令行输入任务名的驼�
 	task generateTests << {
 	...
 	}
-这时候你使用gradle gT的时候Gradle就会报错，因为有多个任务匹配到gT
-	$ gradle yG0 gT
+这时候你使用gradle gT的时候Gradle就会报错，因为有多个任务匹配到gT:  
+
+	$ gradle gT
 	FAILURE: Could not determine which tasks to execute.
 	* What went wrong:
 	Task 'gT' is ambiguous in root project 'grouptherapy'. Candidates are:
