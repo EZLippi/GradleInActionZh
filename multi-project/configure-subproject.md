@@ -43,14 +43,14 @@
 		apply plugin: 'war'
 		apply plugin: 'jetty'
 
-	repositories {
-		mavenCentral()
-	}
+		repositories {
+			mavenCentral()
+		}
 
-	dependencies {
-		providedCompile 'javax.servlet:servlet-api:2.5'
-		runtime 'javax.servlet:jstl:1.1.2'
-	}
+		dependencies {
+			providedCompile 'javax.servlet:servlet-api:2.5'
+			runtime 'javax.servlet:jstl:1.1.2'
+		}
 
 	}
 
@@ -79,26 +79,26 @@
 	}
 
 	project(':repository') {
-	...
+		...
 
-	dependencies {
-		//声明编译期依赖项目model
-		compile project(':model')
+		dependencies {
+			//声明编译期依赖项目model
+			compile project(':model')
 
-	}
+		}
 
 	}
 
 
 	project(':web') {
-	...
+		...
 
-	dependencies {
-		//声明编译期依赖项目repository
-		compile project(':repository')
-		providedCompile 'javax.servlet:servlet-api:2.5'
-		runtime 'javax.servlet:jstl:1.1.2'
-	}
+		dependencies {
+			//声明编译期依赖项目repository
+			compile project(':repository')
+			providedCompile 'javax.servlet:servlet-api:2.5'
+			runtime 'javax.servlet:jstl:1.1.2'
+		}
 
 	}
 
